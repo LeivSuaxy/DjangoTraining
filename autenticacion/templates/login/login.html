@@ -1,0 +1,31 @@
+{% extends 'proyectoapp/base.html' %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <form method="POST" action="" style="color: white;
+                                  margin: 3% auto;
+                                  text-align: center;
+                                  background-color: rgba(24, 64, 8);
+                                  width: 35%; border-radius: 5%;" class="form-control">
+        {% csrf_token %}
+        <h1 style="font-size: 50px; font-style: oblique; font-family: 'Arial Black',serif;">LOGIN</h1>
+
+            {% if messages %}
+               {% for mensaje in messages %}
+                   <span class="alert alert-{{ mensaje.tags }}"> {{ mensaje }} </span>
+                   <br/>
+                   <br/>
+               {% endfor %}
+            {% endif %}
+
+
+
+        {{ form }}
+        <button type="submit" class="btn btn-success" style="margin: 5px">Login</button>
+    </form>
+{% endblock %}
